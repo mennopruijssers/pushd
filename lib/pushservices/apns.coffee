@@ -51,6 +51,7 @@ class PushServiceAPNS
 
             note.badge = badge if not isNaN(badge)
             note.sound = payload.sound
+            note.expiry = Math.round(new Date().getTime() / 1000) + 86400 #expire in one day
             if @payloadFilter?
                 for key, val of payload.data
                     note.payload[key] = val if key in @payloadFilter
