@@ -57,8 +57,7 @@ class PushServiceAPNS
             else
                 note.payload = payload.data
 
-            if device == 'b456fa32b39ffdb0f9a06947d949d5aac411a1af12afc50ce77a00b0ab4e0fc7'
-              @logger.info("Sending notification to: #{device}. #{note.compile}")
+            @logger.info("Sending notification to: #{device}. #{note.compile}")
 
             @driver.pushNotification note, device
             # On iOS we have to maintain the badge counter on the server
